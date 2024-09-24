@@ -1,0 +1,23 @@
+<div class="safety-page">
+    <h2>Safety Information</h2>
+  
+    <input type="text" placeholder="Enter location" #locationInput>
+    <button (click)="getSafetyInfo(40.7128, -74.0060)">Get Safety Info</button>
+  
+    <div *ngIf="weatherInfo">
+      <h3>Weather Information</h3>
+      <p>Temperature: {{weatherInfo.temperature}}°C</p>
+      <p>Description: {{weatherInfo.description}}</p>
+      <p>Safety Tip: {{weatherInfo.safetyTip}}</p>
+    </div>
+  
+    <div id="map" style="height: 400px; width: 100%; margin-top: 20px;"></div>
+  
+    <div *ngIf="mapPoints.length > 0">
+      <h3>Nearby Locations</h3>
+      <ul>
+        <li *ngFor="let point of mapPoints">{{ point.name }} ({{ point.type }})</li>
+      </ul>
+    </div>
+  </div>
+  
